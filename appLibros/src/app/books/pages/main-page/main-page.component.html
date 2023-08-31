@@ -1,1 +1,13 @@
-<p>main-page works!</p>
+<h1>Listado de libros</h1>
+<mat-divider></mat-divider>
+
+<div class="grid bm-8 pt-2">
+
+  <div *ngFor="let book of books"
+    class="col-12 sm:col-4 md:col-3 xl:col-2">
+
+    <app-card-component [book]="book"/>
+
+  </div>
+
+</div>

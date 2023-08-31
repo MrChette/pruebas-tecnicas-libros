@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BooksRoutingModule } from './books-routing.module';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { CardComponentComponent } from './components/card-component/card-component.component';
+import { MaterialModule } from '../material/material.module';
+import { BookImagePipe } from './pipes/book-image.pipe';
 
 
 @NgModule({
   declarations: [
-    MainPageComponent
+    MainPageComponent,
+    CardComponentComponent,
+
+
+    //Pipes
+    BookImagePipe
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    MaterialModule
+  ],
+  exports: [
+    MainPageComponent
   ]
 })
 export class BooksModule { }
