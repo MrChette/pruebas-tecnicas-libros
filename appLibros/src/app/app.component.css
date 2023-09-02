@@ -1,0 +1,18 @@
+.izquierda {
+  width: 60%;
+  float: left;
+  background-color: #ccc; /* Puedes cambiar el color de fondo según tus preferencias */
+  box-sizing: border-box;
+}
+
+.derecha {
+  width: 40%;
+  float: left;
+  background-color: grey; /* Puedes cambiar el color de fondo según tus preferencias */
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 10%; /* Agrega espacio alrededor del contenido dentro del contenedor */
+}
+
