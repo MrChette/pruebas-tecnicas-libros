@@ -5,6 +5,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CardComponentComponent } from './components/card-component/card-component.component';
 import { MaterialModule } from '../material/material.module';
 import { BookImagePipe } from './pipes/book-image.pipe';
+import { MenuComponentComponent } from './components/menu-component/menu-component.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { BookImagePipe } from './pipes/book-image.pipe';
 
 
     //Pipes
-    BookImagePipe
+    BookImagePipe,
+      MenuComponentComponent
   ],
   imports: [
     CommonModule,

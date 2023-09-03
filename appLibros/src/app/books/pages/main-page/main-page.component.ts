@@ -11,12 +11,26 @@ import { CommonModule } from '@angular/common';
 export class MainPageComponent implements OnInit {
 
   public books: Book[] = [];
+  public genres: string[] = [];
+  public nBooks: number = 0;
 
   constructor( private booksService : BooksServiceService ){}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.booksService.getBooks()
-      .subscribe( books => this.books = books);
+      .subscribe(books => {
+        this.books = books;
+        this.getNumberBooks();
+        this.getGenres(); // Llama a getGenres() después de cargar los libros
+      });
+  }
+
+  getGenres() {
+    this.genres = [...new Set(this.books.map((item) => item.book.genre))];
+  }
+
+  getNumberBooks(): void{
+    this.nBooks = this.books.length;
   }
 
 

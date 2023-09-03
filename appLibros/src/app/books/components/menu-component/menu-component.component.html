@@ -1,0 +1,18 @@
+<div class="grid">
+  <div class="col">
+    <label>Filtrar por páginas</label>
+    <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+      <input matSliderThumb>
+    </mat-slider>
+  </div>
+
+  <div class="col">
+    <label>Seleccionar por género</label>
+    <mat-form-field>
+      <mat-label>Selecciona una opción</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

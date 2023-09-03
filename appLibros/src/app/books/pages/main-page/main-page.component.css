@@ -1,0 +1,17 @@
+.izquierda {
+  width: 60%;
+  float: left;
+  background-color: #ccc;
+  box-sizing: border-box;
+}
+
+.derecha {
+  width: 40%;
+  float: left;
+  background-color: grey;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 10%;
+}
