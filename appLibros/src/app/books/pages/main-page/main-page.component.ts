@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Book } from '../../interface/book.interface';
 import { BooksServiceService } from '../../services/books-service.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
@@ -11,10 +10,12 @@ import { CommonModule } from '@angular/common';
 export class MainPageComponent implements OnInit {
 
   public books: Book[] = [];
+  public booksList: Book[] = [];
   public genres: string[] = [];
   public nBooks: number = 0;
 
-  constructor( private booksService : BooksServiceService ){}
+  constructor(
+      private booksService : BooksServiceService){}
 
   ngOnInit() {
     this.booksService.getBooks()
@@ -31,6 +32,15 @@ export class MainPageComponent implements OnInit {
 
   getNumberBooks(): void{
     this.nBooks = this.books.length;
+  }
+
+
+  addToList( book: Book): void {
+    const index = this.books.indexOf(book);
+    if (index !== -1) {
+      this.books.splice(index, 1); // Elimina el libro de books
+      this.booksList.push(book);  // Agrega el libro a booksList
+    }
   }
 
 

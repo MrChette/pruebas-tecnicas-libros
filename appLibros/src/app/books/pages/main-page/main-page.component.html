@@ -1,26 +1,38 @@
+<div class="contenedor">
+  <div class="izquierda">
+    <div class="container">
 
-<div class="izquierda">
-  <div class="container">
+      <h1 class="sm:text-4xl md:text-4xl xl:text-6xl">
+        {{ nBooks }} libros disponibles
+      </h1>
 
-    <h1 class="sm:text-4xl md:text-4xl xl:text-6xl">
-      {{ nBooks }} libros disponibles
-    </h1>
-
-    <menu-component [genres]="genres"/>
+      <menu-component [genres]="genres"/>
 
 
-    <div class="grid bm-8 pt-2">
-      <div *ngFor="let book of books"
-        class="col-12 sm:col-6 md:col-4 xl:col-3">
-        <card-component [book]="book"/>
+      <div class="grid bm-8 pt-2">
+        <div *ngFor="let book of books"
+          class="col-12 sm:col-6 md:col-4 xl:col-3">
+          <div (click)="addToList(book)">
+            <card-component [book]="book"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="derecha">
+    <div class="container">
+      <div class="grid bm-8 pt-2">
+        <div *ngFor="let book of booksList"
+          class="col-12 sm:col-6 md:col-5 xl:col-4">
+          <div>
+            <card-component [book]="book"/>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
+
 </div>
 
-<div class="derecha">
-  <div class="container">
-    <p>a</p>
-  </div>
-</div>

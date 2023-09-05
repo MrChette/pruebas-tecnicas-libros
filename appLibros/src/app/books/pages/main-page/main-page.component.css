@@ -1,16 +1,21 @@
+.contenedor {
+  display: flex;
+}
 .izquierda {
   width: 60%;
   float: left;
-  background-color: #ccc;
+  background-color:#111010;
   box-sizing: border-box;
 }
 
 .derecha {
   width: 40%;
-  float: left;
-  background-color: grey;
+  float: right;
+  background-color: #111010;
   box-sizing: border-box;
 }
+
+
 
 .container {
   padding: 10%;
