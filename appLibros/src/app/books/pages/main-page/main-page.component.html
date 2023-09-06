@@ -1,4 +1,5 @@
 <div class="contenedor">
+
   <div class="izquierda">
     <div class="container">
 
@@ -6,30 +7,36 @@
         {{ nBooks }} libros disponibles
       </h1>
 
-      <menu-component [genres]="genres"/>
+      <menu-component [genres]="getGenres"/>
 
-
-      <div class="grid bm-8 pt-2">
-        <div *ngFor="let book of books"
-          class="col-12 sm:col-6 md:col-4 xl:col-3">
+      <div class="grid pt-8">
+        <div *ngFor="let book of getBooks"
+          class="col-3">
           <div (click)="addToList(book)">
             <card-component [book]="book"/>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <div class="derecha">
-    <div class="container">
-      <div class="grid bm-8 pt-2">
-        <div *ngFor="let book of booksList"
-          class="col-12 sm:col-6 md:col-5 xl:col-4">
-          <div>
-            <card-component [book]="book"/>
-          </div>
+  <div class="derecha vertical-align-middle" >
+    <div class="scrollStatic">
+      <div class="container">
+
+        <div *ngIf="getBookList.length > 0">
+          <mat-card-content class="custom-card" >
+            <div class="grid bm-8 pt-2">
+              <div *ngFor="let book of getBookList"
+                class="col-3">
+                <div (click)="addToBooks(book)">
+                  <card-component [book]="book"/>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
         </div>
+
       </div>
     </div>
   </div>
