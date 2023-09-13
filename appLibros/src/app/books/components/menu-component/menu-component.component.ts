@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { BooksServiceService } from '../../services/books-service.service';
+
 
 @Component({
   selector: 'menu-component',
@@ -10,12 +13,21 @@ export class MenuComponentComponent {
   @Input()
   genres:string [] = [];
 
-  formatLabel(value: number): string {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
+  constructor(
+    private booksService : BooksServiceService
+  ) {}
 
+
+  formatLabel(value: number): string {
     return `${value}`;
+  }
+
+  onInputChange(event: Event) {
+    setTimeout(() => {
+      const inputValue = (event.target as HTMLInputElement).value;
+      const numericValue = parseInt(inputValue, 10);
+      this.booksService.filterBooksByPages(numericValue)
+    }, 350);
   }
 
 

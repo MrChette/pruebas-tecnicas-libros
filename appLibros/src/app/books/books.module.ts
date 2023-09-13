@@ -8,6 +8,7 @@ import { BookImagePipe } from './pipes/book-image.pipe';
 import { MenuComponentComponent } from './components/menu-component/menu-component.component';
 import { BooksComponent } from './pages/books/books.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,10 +25,12 @@ import { BookListComponent } from './pages/book-list/book-list.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   exports: [
-    MainPageComponent
+    MainPageComponent,
+    FormsModule
   ]
 })
 export class BooksModule { }

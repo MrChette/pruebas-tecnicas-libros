@@ -1,9 +1,9 @@
 <div class="grid">
   <div class="col">
     <label>Filtrar por páginas</label>
-    <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
-      <input matSliderThumb>
-    </mat-slider>
+    <mat-slider #sliderElement min="0" max="2000" step="100" showTickMarks discrete [displayWith]="formatLabel">
+    <input matSliderThumb (input)="onInputChange($event)">
+</mat-slider>
   </div>
 
   <div class="col">
