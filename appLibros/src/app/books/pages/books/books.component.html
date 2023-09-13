@@ -1,0 +1,8 @@
+<div class="grid pt-8">
+  <div *ngFor="let book of getBooks"
+        class="col-2">
+            <div (click)="addToList(book)">
+              <card-component [book]="book"/>
+            </div>
+  </div>
+</div>

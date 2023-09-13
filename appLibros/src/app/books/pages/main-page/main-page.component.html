@@ -9,14 +9,8 @@
 
       <menu-component [genres]="getGenres"/>
 
-      <div class="grid pt-8">
-        <div *ngFor="let book of getBooks"
-          class="col-3">
-          <div (click)="addToList(book)">
-            <card-component [book]="book"/>
-          </div>
-        </div>
-      </div>
+      <app-books-page/>
+
     </div>
   </div>
 
@@ -24,18 +18,8 @@
     <div class="scrollStatic">
       <div class="container">
 
-        <div *ngIf="getBookList.length > 0">
-          <mat-card-content class="custom-card" >
-            <div class="grid bm-8 pt-2">
-              <div *ngFor="let book of getBookList"
-                class="col-3">
-                <div (click)="addToBooks(book)">
-                  <card-component [book]="book"/>
-                </div>
-              </div>
-            </div>
-          </mat-card-content>
-        </div>
+        <app-book-list/>
+
 
       </div>
     </div>

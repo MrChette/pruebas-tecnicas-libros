@@ -11,7 +11,13 @@ export class BooksServiceService {
 
   public baseUrl: string =  enviroments.baseUrl;
 
-  constructor( private http: HttpClient) { }
+  private _books: Book[] = [];
+  private _booksList: Book[] = [];
+
+  constructor( private http: HttpClient) {
+    this.getBooks()
+      .subscribe( resp =>  this.books = resp)
+  }
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.baseUrl}/library`)
@@ -20,4 +26,21 @@ export class BooksServiceService {
   getBooksByISBN( isbn: string): Observable<Book | undefined >{
     return this.http.get<Book>(`${this.baseUrl}/library?book.`+isbn);
   }
+
+  get books(): Book[] {
+    return this._books;
+  }
+
+  set books(value: Book[]) {
+    this._books = value;
+  }
+
+  get booksList(): Book[] { // Cambiado el nombre del getter
+    return this._booksList;
+  }
+
+  set booksList(value: Book[]) { // Cambiado el nombre del setter
+    this._booksList = value;
+  }
+
 }

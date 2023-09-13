@@ -33,10 +33,3 @@
   align-items: center;
 }
 
-.custom-card {
-  margin: 3%;
-  border-style:solid;
-  border-radius: 20px;
-  border-color: white;
-  /* Otros estilos personalizados si es necesario */
-}

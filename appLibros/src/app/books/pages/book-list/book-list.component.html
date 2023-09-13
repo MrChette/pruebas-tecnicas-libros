@@ -1,0 +1,12 @@
+<div *ngIf="getBookList.length > 0">
+  <mat-card-content class="custom-card" >
+    <div class="grid bm-8 pt-2">
+      <div *ngFor="let book of getBookList"
+        class="col-3">
+        <div (click)="addToBooks(book)">
+          <card-component [book]="book"/>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</div>
