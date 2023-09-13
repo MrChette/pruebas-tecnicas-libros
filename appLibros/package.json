@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "backend": "json-server --watch data/books.json ",
+    "start": "concurrently \"ng serve\" \"npm run backend\"",
+    "backend": "json-server --watch data/books.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -9,12 +9,9 @@ import { BooksServiceService } from '../../services/books-service.service';
 })
 export class MainPageComponent {
 
-
   constructor(
       private booksService : BooksServiceService
   ){}
-
-
 
   public get getGenres() {
     return [...new Set(this.booksService.books.map((item) => item.book.genre))];
@@ -24,15 +21,8 @@ export class MainPageComponent {
     return this.booksService.books;
   }
 
-
-
   public get nBooks(): number {
     return this.booksService.books.length;
   }
-
-
-
-
-
 
 }
