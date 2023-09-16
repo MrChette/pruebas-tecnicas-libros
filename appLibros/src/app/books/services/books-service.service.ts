@@ -1,8 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { enviroments } from 'src/environments/environments';
-import { Book } from '../interface/book.interface';
 import { Observable } from 'rxjs';
+import { Book } from '../interface/book.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +10,14 @@ import { Observable } from 'rxjs';
 export class BooksServiceService {
 
   public baseUrl: string =  enviroments.baseUrl;
-
-  private _bdbooks: Book[] = [];
   private _books: Book[] = [];
   private _booksList: Book[] = [];
 
   constructor( private http: HttpClient) {
     this.getBooks()
       .subscribe( resp => {
-        this._bdbooks = resp,
-        this._books = this._bdbooks
+        this._books = resp
+      //  this._books = this._bdbooks
       });
 
   }
@@ -32,8 +30,7 @@ export class BooksServiceService {
     return this.http.get<Book>(`${this.baseUrl}/library?book.`+isbn);
   }
 
-  filterBooksByPages(pages: number) {
-    this._books = this._bdbooks;
+  filterBooksByPages(pages: number){
     this._books = (this._books.filter(book => book.book.pages <= pages));
   }
 
@@ -49,7 +46,7 @@ export class BooksServiceService {
     return this._booksList;
   }
 
-  set booksList(value: Book[]) { // Cambiado el nombre del setter
+  set booksList(value: Book[]) {
     this._booksList = value;
   }
 
