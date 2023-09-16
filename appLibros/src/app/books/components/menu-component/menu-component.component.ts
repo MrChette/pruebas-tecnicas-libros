@@ -22,6 +22,10 @@ export class MenuComponentComponent {
     return `${value}`;
   }
 
+  get books(){
+    return this.booksService.books;
+  }
+
   onInputChange(event: Event) {
     setTimeout(() => {
       const inputValue = (event.target as HTMLInputElement).value;

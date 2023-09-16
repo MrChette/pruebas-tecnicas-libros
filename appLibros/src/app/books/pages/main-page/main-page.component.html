@@ -1,27 +1,24 @@
-<div class="contenedor">
 
-  <div class="izquierda">
-    <div class="container">
+<div class="myContainer">
+  <div class="grid" >
 
-      <h1 class="sm:text-4xl md:text-4xl xl:text-6xl">
-        {{ nBooks }} libros disponibles
-      </h1>
+    <div class="col-6 left-side">
 
-      <menu-component [genres]="getGenres"/>
+        <h1 class="sm:text-4xl md:text-4xl xl:text-6xl">
+          {{ nBooks }} libros disponibles
+        </h1>
 
-      <app-books-page/>
+        <menu-component [genres]="getGenres"/>
+
+        <app-books-page/>
+    </div>
+
+    <div class="col-4 right-side" >
+
+          <app-book-list/>
 
     </div>
-  </div>
 
-  <div class="derecha vertical-align-middle" >
-    <div class="scrollStatic">
-      <div class="container">
-
-        <app-book-list/>
-
-      </div>
-    </div>
   </div>
 
 </div>
